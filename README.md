@@ -78,7 +78,6 @@
 | master.openshift.hal9000.com | 192.168.148.130 | 40 Gb | 8Gb | Centos-7 | Master Node |
 | node1.openshift.hal9000.com | 192.168.148.131 | 40 Gb | 8Gb | Centos-7 | Worker Node 1 |
 | node1.openshift.hal9000.com | 192.168.148.132 | 40 Gb | 8Gb | Centos-7 | Worker Node 2 |
-| node3.openshift.hal9000.com | 192.168.148.133 | 40 Gb | 8Gb | Centos-7 | Worker Node 3 |
 
 ### Install Centos-7 on all your nodes
 [CentOS-7-x86_64-Minimal-2003.iso](http://isoredirect.centos.org/centos/7/isos/x86_64/)
@@ -109,7 +108,6 @@ You should connect on root on all ur nodes for the main part of this tutoriel, y
 * master [https://192.168.148.130:9090](https://192.168.148.130:9090)
 * node1 [https://192.168.148.131:9090](https://192.168.148.131:9090)
 * node2 [https://192.168.148.132:9090](https://192.168.148.132:9090)
-* node3 [https://192.168.148.133:9090](https://192.168.148.133:9090)
 
 ## Preparing Nodes
 ### Set the hostname for each corresponding node
@@ -128,18 +126,13 @@ Node2
 ```
 hostnamectl set-hostname node2.hal9000.com
 ```
-Node3
-
-```
-hostnamectl set-hostname node3.hal9000.com
-```
 
 ### Configure static ip
 ```
 vi /etc/sysconfig/network-scripts/ifcfg-ens33
 ```
 
-Change BOOTPROTO from dhcp to static and add the following lignes to the file. Do that for each nodes with IPADDR 130 for master, 131 for node1, 132, for node2 and 133 for node3.
+Change BOOTPROTO from dhcp to static and add the following lignes to the file. Do that for each nodes with IPADDR 130 for master, 131 for node1 and 132 for node2.
 
 Realy take care of the GATEWAY cause it depend on your virtualization software, for VMware Fusion it's 192.168.148.2
 
@@ -161,7 +154,7 @@ NAME=ens33
 DEVICE=ens33
 ONBOOT=yes
 PROXY_METHOD=none
-IPADDR=192.168.148.133
+IPADDR=192.168.148.130
 PREFIX=24
 NETMASK=255.255.255.0
 GATEWAY=192.168.148.2
@@ -179,9 +172,8 @@ vi /etc/hosts
 ```
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 192.168.148.130   master.openshift.hal9000.com  master
-192.168.148.131   node1.openshift.hal9000.com  infra
-192.168.148.132   node2.openshift.hal9000.com  node1
-192.168.148.133   node3.openshift.hal9000.com  node2
+192.168.148.131   node1.openshift.hal9000.com  node1
+192.168.148.132   node2.openshift.hal9000.com  node2
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 ```
 
@@ -217,7 +209,6 @@ You should connect on root on all ur nodes for the main part of this tutoriel.
 * master [https://192.168.148.130:9090](https://192.168.148.130:9090)
 * node1 [https://192.168.148.131:9090](https://192.168.148.131:9090)
 * node2 [https://192.168.148.132:9090](https://192.168.148.132:9090)
-* node3 [https://192.168.148.133:9090](https://192.168.148.133:9090)
 
 ### Deploying and starting Openshift Origin from master node
 #### Preparation on master only
@@ -244,9 +235,6 @@ Host node1
 Host node2
     Hostname node2.hal9000.com
     User root
-Host node3
-    Hostname node3.hal9000.com
-    User root
 ```
 
 ##### Send the public-key to all the nodes
@@ -258,7 +246,6 @@ chmod 600 ~/.ssh/config
 ssh-copy-id master
 ssh-copy-id node1
 ssh-copy-id node2
-ssh-copy-id node3
 ```
 
 #### Preparing the hosts file for Ansible
@@ -304,7 +291,6 @@ master.hal9000.com
 master.hal9000.com openshift_node_group_name='node-config-master-infra'
 node1.hal9000.com openshift_node_group_name='node-config-compute'
 node2.hal9000.com openshift_node_group_name='node-config-compute'
-node3.hal9000.com openshift_node_group_name='node-config-compute'
 
 ###########################################################################
 ### Ansible Vars
@@ -386,7 +372,6 @@ NAME                 STATUS    ROLES          AGE       VERSION
 master.hal9000.com   Ready     infra,master   20m       v1.11.0+d4cacc0
 node1.hal9000.com    Ready     compute        16m       v1.11.0+d4cacc0
 node2.hal9000.com    Ready     compute        16m       v1.11.0+d4cacc0
-node3.hal9000.com    Ready     compute        16m       v1.11.0+d4cacc0
 ```
 
 #### View status with labels
@@ -400,7 +385,6 @@ NAME                 STATUS    ROLES          AGE       VERSION           LABELS
 master.hal9000.com   Ready     infra,master   20m       v1.11.0+d4cacc0   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/hostname=master.hal9000.com,node-role.kubernetes.io/infra=true,node-role.kubernetes.io/master=true
 node1.hal9000.com    Ready     compute        17m       v1.11.0+d4cacc0   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/hostname=node1.hal9000.com,node-role.kubernetes.io/compute=true
 node2.hal9000.com    Ready     compute        17m       v1.11.0+d4cacc0   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/hostname=node2.hal9000.com,node-role.kubernetes.io/compute=true
-node3.hal9000.com    Ready     compute        17m       v1.11.0+d4cacc0   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/os=linux,kubernetes.io/hostname=node3.hal9000.com,node-role.kubernetes.io/compute=true
 ```
 
 #### See the state of your pods
