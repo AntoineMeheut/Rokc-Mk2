@@ -33,7 +33,7 @@
 * [Deploying OpenShift Origin on VM cluster](#deploying-openShift-origin-on-vm-cluster)
 	* [Infrastructure Setup](#infrastructure-setup)
 		* [Install Centos-7 on all your nodes](#install-centos-7-on-all-your-nodes)
-		* [Installing cockpit admin on CentOS 7 for all nodes](#installing-cockpit-admin-on-centos-7-for-all-nodes)
+		* [Installing cockpit tool on CentOS 7 for all nodes](#installing-cockpit-tool-on-centos-7-for-all-nodes)
 			* [Install Cockpit](#install-cockpit)
 			* [Install additional Cockpit packages](#install-additional-cockpit-packages)
 			* [Enable Cockpit](#enable-cockpit)
