@@ -77,7 +77,7 @@
 | ---- | ---- | ---- | ---- | ---- | ---- |
 | master.openshift.hal9000.com | 192.168.148.130 | 40 Gb | 8Gb | Centos-7 | Master Node |
 | node1.openshift.hal9000.com | 192.168.148.131 | 40 Gb | 8Gb | Centos-7 | Worker Node 1 |
-| node1.openshift.hal9000.com | 192.168.148.132 | 40 Gb | 8Gb | Centos-7 | Worker Node 2 |
+| node2.openshift.hal9000.com | 192.168.148.132 | 40 Gb | 8Gb | Centos-7 | Worker Node 2 |
 
 ### Install Centos-7 on all your nodes
 [CentOS-7-x86_64-Minimal-2003.iso](http://isoredirect.centos.org/centos/7/isos/x86_64/)
