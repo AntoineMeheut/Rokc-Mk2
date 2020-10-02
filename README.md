@@ -43,12 +43,12 @@
 		* [Set the hostname for each corresponding node](#set-the-hostname-for-each-corresponding-node)
 		* [Configure static ip](#configure-static-ip)
 		* [Configure names resolution for all node](#configure-names-resolution-for-all-node)
-	* [Openshift Origin 3.11 installation](#openshift-origin-3.11-installation)
-		* [Installation of OKD 3.11 and Ansible](#installation-of-okd-3.11-and-ansible)
+	* [Openshift Origin installation](#openshift-origin-installation)
+		* [Installation of OKD and Ansible](#installation-of-okd-and-ansible)
 		* [Add docker to firewall](#add-docker-to-firewall)
 		* [Now you can reboot your node](#now-you-can-reboot-your-node)
 		* [Connect to your nodes cockpit interfaces](#connect-to-your-nodes-cockpit-interfaces)
-		* [Deploying and starting Openshift Origin 3.11 from master node](#deploying-and-starting-openshift-origin-3.11-from-master-node)
+		* [Deploying and starting Openshift Origin from master node](#deploying-and-starting-openshift-origin-from-master-node)
 			* [Preparation on master only](#preparation-on-master-only)
 				* [Creating an RSA key](#creating-an-rsa-key)
 				* [Declare the target nodes for the key](#declare-the-target-nodes-for-the-key)
@@ -185,8 +185,8 @@ vi /etc/hosts
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 ```
 
-## Openshift Origin 3.11 installation
-### Installation of OKD 3.11 and Ansible
+## Openshift Origin installation
+### Installation of OKD and Ansible
 On all Nodes, install OpenShift Origin 3.11 repository, Ansible and Docker.
 
 For Ansible, version 2.6, 2.7, 2.8, 2.9 are provided from CentOS Repository, but Openshift-Ansible is not supported on 2.8 or later, so install Ansible 2.7
@@ -219,7 +219,7 @@ You should connect on root on all ur nodes for the main part of this tutoriel.
 * node2 [https://192.168.148.132:9090](https://192.168.148.132:9090)
 * node3 [https://192.168.148.133:9090](https://192.168.148.133:9090)
 
-### Deploying and starting Openshift Origin 3.11 from master node
+### Deploying and starting Openshift Origin from master node
 #### Preparation on master only
 This declaration of targets for the sharing of the RSA key and the sending of keys which follow simply make it possible not to have to enter the login and password of each node in Ansible executes the installation scripts of Openshift Origin.
 
