@@ -7,7 +7,6 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -17,7 +16,7 @@
     <img src="images/kubernetes.png" alt="Kubernetes" width="150" height="150">
   </a>
 
-  <h3 align="center">LattePanda Openshift Kubernetes Cluster</h3>
+  <h3 align="center">Deploying OpenShift Origin 3.11 on VM cluster</h3>
 
   <p align="center">
     Rokc Mark 2 was born out of a wall I ran into while trying to compile Openshift for ARM on Rokc-Mk1 project. It doesn't matter, his little brother is a new adventure of reflection, discovery, reading, training and sharing. By keeping the same technical objective to run a private cloud with Openshift, deploy applications and work on security to improve and share my knowledge on the Sec of DevSecOps. **With the experience gained on the Rokc-Mk1 project, I first decided to experiment with the project on VMs in order to be sure that it works before buying the server cards necessary for the installation on metal bar.**
@@ -30,10 +29,9 @@
 </p>
 
 
-
 <!-- TABLE OF CONTENTS -->
-* [Deploying OpenShift Origin 3.11 on VM cluster](deploying-openShift-origin-3.11-on-vm-cluster)
-	* [Infrastructure Setup]()
+* [Deploying OpenShift Origin on VM cluster](#deploying-openShift-origin-on-vm-cluster)
+	* [Infrastructure Setup](#infrastructure-setup)
 		* [Install Centos-7 on all your server]()
 		* [Installing Cockpit Admin Tool on CentOS 7 for all nodes]()
 			* [Install Cockpit]()
@@ -73,7 +71,7 @@
 * [Acknowledgements](Acknowledgements)
 
 <!-- ABOUT THE PROJECT -->
-# Deploying OpenShift Origin 3.11 on VM cluster
+# Deploying OpenShift Origin on VM cluster
 ## Infrastructure Setup
 | Hostname | IP Address | VM Disk | VM Memory | OS | Role |
 | ---- | ---- | ---- | ---- | ---- | ---- |
