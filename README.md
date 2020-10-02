@@ -32,43 +32,43 @@
 <!-- TABLE OF CONTENTS -->
 * [Deploying OpenShift Origin on VM cluster](#deploying-openShift-origin-on-vm-cluster)
 	* [Infrastructure Setup](#infrastructure-setup)
-		* [Install Centos-7 on all your server]()
-		* [Installing Cockpit Admin Tool on CentOS 7 for all nodes]()
-			* [Install Cockpit]()
-			* [Install additional Cockpit packages]()
-			* [Enable Cockpit]()
-			* [Add cockpit to firewall]()
-		* [Connect to your nodes interfaces]()
-	* [Preparing Nodes]()
-		* [Set the hostname for each corresponding node]()
-		* [Configure static ip]()
-		* [Configure names resolution for all node]()
-	* [Openshift Origin 3.11 installation]()
-		* [Installation de OKD 3.11 et de Ansible]()
-		* [Add docker to firewall]()
-		* [Now you can reboot your node]()
-		* [Connect to your nodes cockpit interfaces]()
-		* [Deploying and starting Openshift Origin 3.11 from master node]()
-			* [Preparation on master only]()
-				* [Creating an RSA key]()
-				* [Declare the target nodes for the key]()
-				* [Send the public-key to all the nodes]()
-			* [Preparing the hosts file for Ansible]()
-			* [Run prerequisites playbook]()
-			* [Run deploy cluster playbook]()
-		* [Useful commands to verify that it works]()
-			* [See the state of your nodes]()
-			* [View status with labels]()
-			* [See the state of your pods]()
-			* [Create User Accounts for OKD console]()
-				* [Create a user account]()
-				* [Restart OpenShift before going forward]()
-		* [Access the OKD console]()
-* [Roadmap](Roadmap)
-* [Contributing](Contributing)
-* [License](License)
-* [Contact](Contact)
-* [Acknowledgements](Acknowledgements)
+		* [Install Centos-7 on all your nodes](#install-centos-7-on-all-your-nodes)
+		* [Installing cockpit admin on CentOS 7 for all nodes](#installing-cockpit-admin-on-centos-7-for-all-nodes)
+			* [Install Cockpit](#install-cockpit)
+			* [Install additional Cockpit packages](#install-additional-cockpit-packages)
+			* [Enable Cockpit](#enable-cockpit)
+			* [Add cockpit to firewall](#add-cockpit-to-firewall)
+		* [Connect to your nodes interfaces](#connect-to-your-nodes-interfaces)
+	* [Preparing Nodes](#preparing-nodes)
+		* [Set the hostname for each corresponding node](#set-the-hostname-for-each-corresponding-node)
+		* [Configure static ip](#configure-static-ip)
+		* [Configure names resolution for all node](#configure-names-resolution-for-all-node)
+	* [Openshift Origin 3.11 installation](#openshift-origin-3.11-installation)
+		* [Installation of OKD 3.11 and Ansible](#installation-of-okd-3.11-and-ansible)
+		* [Add docker to firewall](#add-docker-to-firewall)
+		* [Now you can reboot your node](#now-you-can-reboot-your-node)
+		* [Connect to your nodes cockpit interfaces](#connect-to-your-nodes-cockpit-interfaces)
+		* [Deploying and starting Openshift Origin 3.11 from master node](#deploying-and-starting-openshift-origin-3.11-from-master-node)
+			* [Preparation on master only](#preparation-on-master-only)
+				* [Creating an RSA key](#creating-an-rsa-key)
+				* [Declare the target nodes for the key](#declare-the-target-nodes-for-the-key)
+				* [Send the public-key to all the nodes](#send-the-public-key-to-all-the-nodes)
+			* [Preparing the hosts file for Ansible](#preparing-the-hosts-file-for-ansible)
+			* [Run prerequisites playbook](#run-prerequisites-playbook)
+			* [Run deploy cluster playbook](#run-deploy-cluster-playbook)
+		* [Useful commands to verify that it works](#useful-commands-to-verify-that-it-works)
+			* [See the state of your nodes](#see-the-state-of-your-nodes)
+			* [View status with labels](#view-status-with-labels)
+			* [See the state of your pods](#see-the-state-of-your-pods)
+			* [Create User Accounts for OKD console](#create-user-accounts-for-okd-console)
+				* [Create a user account](#create-a-user-account)
+				* [Restart OpenShift before going forward](#restart-openShift-before-going-forward)
+		* [Access the OKD console](#access-the-okd-console)
+* [Roadmap](#roadmap)
+* [Contributing](#contributing)
+* [License](#license)
+* [Contact](#contact)
+* [Acknowledgements](#acknowledgements)
 
 <!-- ABOUT THE PROJECT -->
 # Deploying OpenShift Origin on VM cluster
@@ -80,12 +80,12 @@
 | node1.openshift.hal9000.com | 192.168.148.132 | 40 Gb | 8Gb | Centos-7 | Worker Node 2 |
 | node3.openshift.hal9000.com | 192.168.148.133 | 40 Gb | 8Gb | Centos-7 | Worker Node 3 |
 
-### Install Centos-7 on all your server
+### Install Centos-7 on all your nodes
 [CentOS-7-x86_64-Minimal-2003.iso](http://isoredirect.centos.org/centos/7/isos/x86_64/)
 
 If you need detailed information on this phase, refer to the installation on target bar metal.
 
-### Installing Cockpit Admin Tool on CentOS 7 for all nodes
+### Installing cockpit tool on CentOS 7 for all nodes
 #### Install Cockpit
 ```
 yum install -y cockpit
@@ -186,7 +186,7 @@ vi /etc/hosts
 ```
 
 ## Openshift Origin 3.11 installation
-### Installation de OKD 3.11 et de Ansible
+### Installation of OKD 3.11 and Ansible
 On all Nodes, install OpenShift Origin 3.11 repository, Ansible and Docker.
 
 For Ansible, version 2.6, 2.7, 2.8, 2.9 are provided from CentOS Repository, but Openshift-Ansible is not supported on 2.8 or later, so install Ansible 2.7
@@ -491,7 +491,7 @@ Because it's not possible to access to this address with the IP, you should open
 192.168.1.16   master.hal9000.com  master
 ```
 
-#### Create User Accounts for OKD console
+#### Create user accounts for OKD console
 You can use the httpd-tools package to obtain the htpasswd binary that can generate these accounts.
 
 ```
