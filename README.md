@@ -12,7 +12,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/AntoineMeheut/Rokc-Mk2">
-    <img src="images/lattepanda.png" alt="LattePanda" width="150" height="150">
+    <img src="images/MacBook_Running_Virtual_Machine.svg" alt="LattePanda" width="200" height="150">
     <img src="images/openshift.png" alt="Openshift" width="150" height="150">
     <img src="images/kubernetes.png" alt="Kubernetes" width="150" height="150">
   </a>
@@ -32,7 +32,7 @@
 
 
 <!-- TABLE OF CONTENTS -->
-* [Deploying OpenShift Origin 3.11 on VM cluster]()
+* [Deploying OpenShift Origin 3.11 on VM cluster](deploying-openShift-origin-3.11-on-vm-cluster)
 	* [Infrastructure Setup]()
 		* [Install Centos-7 on all your server]()
 		* [Installing Cockpit Admin Tool on CentOS 7 for all nodes]()
