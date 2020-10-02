@@ -554,7 +554,7 @@ Project Link: [https://github.com/AntoineMeheut/Rokc](https://github.com/Antoine
 [stars-url]: https://github.com/AntoineMeheut/Rokc-Mk2/stargazers
 [issues-shield]: https://img.shields.io/github/issues/AntoineMeheut/Rokc-Mk2
 [issues-url]: https://github.com/AntoineMeheut/Rokc-Mk2/issues
-[license-shield]: https://img.shields.io/github/license/AntoineMeheut/Rokc-Mk2
-[license-url]: https://github.com/AntoineMeheut/Rokc-Mk2/blob/master/LICENSE
+[license-shield]: https://img.shields.io/github/license/AntoineMeheut/kafka_producer
+[license-url]: https://github.com/AntoineMeheut/kafka_producer/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/antoine-meheut
