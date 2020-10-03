@@ -517,7 +517,7 @@ oc adm policy add-cluster-role-to-user cluster-admin admin
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [Project](https://github.com/AntoineMeheut/Rokc/projects) for a list of proposed features (and known issues).
+See the [Project](https://github.com/AntoineMeheut/Rokc-Mk2/projects) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 ## Contributing
