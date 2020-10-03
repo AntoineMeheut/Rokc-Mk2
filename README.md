@@ -103,7 +103,7 @@ firewall-cmd --permanent --add-service=cockpit
 firewall-cmd --reload
 ```
 ### Connect to your nodes interfaces
-You should connect on root on all ur nodes for the main part of this tutoriel, you will have to create a user on the master node to install ansible.
+You should connect on root on all ur nodes.
 
 * master [https://192.168.148.130:9090](https://192.168.148.130:9090)
 * node1 [https://192.168.148.131:9090](https://192.168.148.131:9090)
@@ -134,7 +134,7 @@ vi /etc/sysconfig/network-scripts/ifcfg-ens33
 
 Change BOOTPROTO from dhcp to static and add the following lignes to the file. Do that for each nodes with IPADDR 130 for master, 131 for node1 and 132 for node2.
 
-Realy take care of the GATEWAY cause it depend on your virtualization software, for VMware Fusion it's 192.168.148.2
+Realy take care of the GATEWAY cause it depend on your virtualization software, for my VMware Fusion it's 192.168.148.2
 
 Take care to keep the UUID of the file you are modifying, you can delete all lines except this one.
 
@@ -159,7 +159,7 @@ PREFIX=24
 NETMASK=255.255.255.0
 GATEWAY=192.168.148.2
 DNS1=8.8.8.8
-UUID=c96bc909-188e-ec64-3a96-6a90982b08ad
+UUID=c96bc909-188e-ec64-3a96-6a90982b08ad <keep your UUID already present in your file>
 ```
 
 ### Configure names resolution for all node
@@ -201,10 +201,10 @@ firewall-cmd --reload
 reboot
 ```
 
-**Once here, repeat the section preparing all nodes for node1, node2 and node3.**
+**Once here, repeat the section preparing all nodes for node1 and node2.**
 
 ### Connect to your nodes cockpit interfaces
-You should connect on root on all ur nodes for the main part of this tutoriel.
+You should connect on root on all ur nodes.
 
 * master [https://192.168.148.130:9090](https://192.168.148.130:9090)
 * node1 [https://192.168.148.131:9090](https://192.168.148.131:9090)
@@ -212,7 +212,7 @@ You should connect on root on all ur nodes for the main part of this tutoriel.
 
 ### Deploying and starting Openshift Origin from master node
 #### Preparation on master only
-This declaration of targets for the sharing of the RSA key and the sending of keys which follow simply make it possible not to have to enter the login and password of each node in Ansible executes the installation scripts of Openshift Origin.
+This declaration of targets for the sharing of the RSA key and the sending of keys which follow, simply avoids having to enter the login and password of each node when Ansible executes the installation scripts of Openshift Origin.
 
 ##### Creating an RSA key
 ```
@@ -255,7 +255,7 @@ vi /etc/ansible/hosts
 
 ```
 #
-# ansible inventory for OpenShift Origin Platform  3.11
+# Ansible inventory for OpenShift Origin Platform  3.11
 #
 
 ###########################################################################
@@ -299,6 +299,7 @@ node2.hal9000.com openshift_node_group_name='node-config-compute'
 # Admin user created in previous section
 ansible_ssh_user=root
 
+# Use it if the installation user is not root
 # ansible_become=true
 
 # Deployment type
@@ -306,26 +307,29 @@ openshift_deployment_type=origin
 # openshift_deployment_type=openshift-enterprise
 
 # WARNING: only disable these checks in LAB/TEST environments(Do not use in production)
+# The master node must have 16 Gb of memory and it works fine with 8 Gb
 openshift_disable_check="disk_availability,memory_availability"
 
 ###########################################################################
 ### OpenShift Registries Locations
 ###########################################################################
-# use HTPasswd for authentication
+# Use HTPasswd for authentication
 openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider'}]
 
 ###########################################################################
 ### OpenShift Master Vars
 ###########################################################################
-# define default sub-domain for Master node
+# Define default sub-domain for Master node applications
 openshift_master_default_subdomain=apps.hal9000.com
 
 ###########################################################################
-# image for a cluster with a working registry-console in 3.11
+# Image for a cluster with a working registry-console in 3.11
+# Because the console which is installed by default has a bug that prevents it from starting
 ###########################################################################
 openshift_cockpit_deployer_image='docker.io/timbordemann/cockpit-kubernetes:latest'
 
-# allow unencrypted connection within cluster
+# Allow unencrypted connection within cluster
+# Be careful, it's just to use a Cloud not connected to the internet, for a production target, you have to do it differently
 openshift_docker_insecure_registries=192.168.1.16/16
 ```
 
@@ -489,7 +493,7 @@ touch /etc/origin/master/htpasswd
 htpasswd -b /etc/origin/master/htpasswd admin redhat
 ```
 
-You have created a user, admin, with the password, redhat.
+You can create, for example, a user like this one, admin, with the password, redhat.
 
 ##### Restart OpenShift before going forward
 ```
