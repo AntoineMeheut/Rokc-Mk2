@@ -541,7 +541,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Antoine Méheut - [@Linkedin_antoine-meheut](https://www.linkedin.com/in/antoine-meheut)
 
-Project Link: [https://github.com/AntoineMeheut/Rokc](https://github.com/AntoineMeheut/Rokc)
+Project Link: [https://github.com/AntoineMeheut/Rokc-Mk2](https://github.com/AntoineMeheut/Rokc-Mk2)
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
