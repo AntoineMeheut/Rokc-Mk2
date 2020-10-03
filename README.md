@@ -286,7 +286,7 @@ master.hal9000.com openshift_schedulable=true containerized=false
 master.hal9000.com
 
 [nodes]
-# defined values for [openshift_node_group_name] in the file below
+# Defined values for [openshift_node_group_name] in the file below
 # [/usr/share/ansible/openshift-ansible/roles/openshift_facts/defaults/main.yml]
 master.hal9000.com openshift_node_group_name='node-config-master-infra'
 node1.hal9000.com openshift_node_group_name='node-config-compute'
