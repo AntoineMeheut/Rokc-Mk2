@@ -79,6 +79,13 @@
 | node1.openshift.hal9000.com | 192.168.148.131 | 40 Gb | 8Gb | Centos-7 | Worker Node 1 |
 | node2.openshift.hal9000.com | 192.168.148.132 | 40 Gb | 8Gb | Centos-7 | Worker Node 2 |
 
+To do this installation on virtual machines, on a laptop, you need a minimum of 32 Gb of memory.
+We will use 3 x 8 Gb per virtual machine, for each of the 3 nodes and it will be necessary
+to leave some free memory for your OS and the virtualization software that you will use.
+
+I built this tutorial on a MacBook Pro using VMware Fusion, I think it is possible to achieve this
+using VirtualBox, but I have not tested.
+
 ### Install Centos-7 on all your nodes
 [CentOS-7-x86_64-Minimal-2003.iso](http://isoredirect.centos.org/centos/7/isos/x86_64/)
 
