@@ -4,8 +4,6 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![GNU License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 
 <!-- PROJECT LOGO -->
 <br />
@@ -546,7 +544,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Antoine Méheut - [@Linkedin_antoine-meheut](https://www.linkedin.com/in/antoine-meheut)
+If you want to contact me [just clic](mailto:github.contacts@protonmail.com)
 
 Project Link: [https://github.com/AntoineMeheut/Rokc-Mk2](https://github.com/AntoineMeheut/Rokc-Mk2)
 
@@ -567,5 +565,3 @@ Project Link: [https://github.com/AntoineMeheut/Rokc-Mk2](https://github.com/Ant
 [issues-url]: https://github.com/AntoineMeheut/Rokc-Mk2/issues
 [license-shield]: https://img.shields.io/github/license/AntoineMeheut/kafka_producer
 [license-url]: https://github.com/AntoineMeheut/kafka_producer/blob/master/LICENSE
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/antoine-meheut
